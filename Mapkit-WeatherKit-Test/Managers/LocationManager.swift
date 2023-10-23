@@ -44,7 +44,7 @@ extension LocationManager {
         manager?.delegate = self
         manager?.desiredAccuracy = kCLLocationAccuracyBest
         manager?.distanceFilter = kCLDistanceFilterNone
-        manager?.startUpdatingLocation()
+//        manager?.startUpdatingLocation()
     }
     
     private func handleAuthorizationStatus() {

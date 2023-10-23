@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7106BDF62AC118B700B99CBA /* 10x10.csv in Resources */ = {isa = PBXBuildFile; fileRef = 7106BDF52AC118B700B99CBA /* 10x10.csv */; };
 		7144B46D29A4079400EFED84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144B46C29A4079400EFED84 /* AppDelegate.swift */; };
 		7144B46F29A4079400EFED84 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144B46E29A4079400EFED84 /* SceneDelegate.swift */; };
 		7144B47629A4079600EFED84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7144B47529A4079600EFED84 /* Assets.xcassets */; };
@@ -14,6 +15,9 @@
 		7144B48229A40AD400EFED84 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144B48129A40AD300EFED84 /* BaseViewController.swift */; };
 		7144B48829A40B7C00EFED84 /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144B48729A40B7C00EFED84 /* HomeScreenView.swift */; };
 		7144B48E29A40DB800EFED84 /* ViewSetupProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7144B48D29A40DB800EFED84 /* ViewSetupProtocol.swift */; };
+		71526F572A9F84B900AA2E72 /* CoordinateObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71526F562A9F84B900AA2E72 /* CoordinateObject.swift */; };
+		71526F5A2A9F8C6C00AA2E72 /* coordinates.json in Resources */ = {isa = PBXBuildFile; fileRef = 71BEAE552A9F7A4900723F4B /* coordinates.json */; };
+		71B9C93D2AC0F5700097F38C /* 2x2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 71B9C93C2AC0F5700097F38C /* 2x2.csv */; };
 		71C04E4029A4184000E0A8E4 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C04E3E29A417C700E0A8E4 /* HomeScreenViewController.swift */; };
 		71C04E4329A4239200E0A8E4 /* UIViewControllerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C04E4229A4239200E0A8E4 /* UIViewControllerPreview.swift */; };
 		71C04E4529A423A000E0A8E4 /* UIViewPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C04E4429A423A000E0A8E4 /* UIViewPreview.swift */; };
@@ -28,9 +32,13 @@
 		71C04E7D29A5AC9D00E0A8E4 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C04E7C29A5AC9D00E0A8E4 /* UIFontExtension.swift */; };
 		71C04E8029A5B28F00E0A8E4 /* SearchScreenDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C04E7F29A5B28F00E0A8E4 /* SearchScreenDelegate.swift */; };
 		71C04E8329A5B9DF00E0A8E4 /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C04E8229A5B9DF00E0A8E4 /* HomeScreenViewModel.swift */; };
+		71EC77312AD4E81C0070B8DF /* 10x10_Coordenadas.txt in Resources */ = {isa = PBXBuildFile; fileRef = 71EC77302AD4E81C0070B8DF /* 10x10_Coordenadas.txt */; };
+		71EC77332AD4E8240070B8DF /* 5x5_Coordenadas.txt in Resources */ = {isa = PBXBuildFile; fileRef = 71EC77322AD4E8240070B8DF /* 5x5_Coordenadas.txt */; };
+		71EC77352AD4E82F0070B8DF /* 2x2_Coordenadas.txt in Resources */ = {isa = PBXBuildFile; fileRef = 71EC77342AD4E82F0070B8DF /* 2x2_Coordenadas.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7106BDF52AC118B700B99CBA /* 10x10.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 10x10.csv; sourceTree = "<group>"; };
 		7144B46929A4079400EFED84 /* Mapkit-WeatherKit-Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mapkit-WeatherKit-Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7144B46C29A4079400EFED84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7144B46E29A4079400EFED84 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +48,9 @@
 		7144B48129A40AD300EFED84 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		7144B48729A40B7C00EFED84 /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
 		7144B48D29A40DB800EFED84 /* ViewSetupProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSetupProtocol.swift; sourceTree = "<group>"; };
+		71526F562A9F84B900AA2E72 /* CoordinateObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateObject.swift; sourceTree = "<group>"; };
+		71B9C93C2AC0F5700097F38C /* 2x2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 2x2.csv; sourceTree = "<group>"; };
+		71BEAE552A9F7A4900723F4B /* coordinates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = coordinates.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
 		71C04E3E29A417C700E0A8E4 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		71C04E4229A4239200E0A8E4 /* UIViewControllerPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerPreview.swift; sourceTree = "<group>"; };
 		71C04E4429A423A000E0A8E4 /* UIViewPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewPreview.swift; sourceTree = "<group>"; };
@@ -54,6 +65,10 @@
 		71C04E7C29A5AC9D00E0A8E4 /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		71C04E7F29A5B28F00E0A8E4 /* SearchScreenDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenDelegate.swift; sourceTree = "<group>"; };
 		71C04E8229A5B9DF00E0A8E4 /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
+		71EC77302AD4E81C0070B8DF /* 10x10_Coordenadas.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 10x10_Coordenadas.txt; sourceTree = "<group>"; };
+		71EC77322AD4E8240070B8DF /* 5x5_Coordenadas.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 5x5_Coordenadas.txt; sourceTree = "<group>"; };
+		71EC77342AD4E82F0070B8DF /* 2x2_Coordenadas.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 2x2_Coordenadas.txt; sourceTree = "<group>"; };
+		71F4F92B29C4B3DD007E62E4 /* Mapkit-WeatherKit-Test.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Mapkit-WeatherKit-Test.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +101,7 @@
 		7144B46B29A4079400EFED84 /* Mapkit-WeatherKit-Test */ = {
 			isa = PBXGroup;
 			children = (
+				71F4F92B29C4B3DD007E62E4 /* Mapkit-WeatherKit-Test.entitlements */,
 				71C04E4629A43BA000E0A8E4 /* Managers */,
 				7144B48929A40C8300EFED84 /* Build Files */,
 				7144B48029A40AC300EFED84 /* Utilities */,
@@ -100,6 +116,7 @@
 		7144B48029A40AC300EFED84 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				71BEAE542A9F7A3600723F4B /* Resources */,
 				71C04E7929A5857A00E0A8E4 /* Enums */,
 				71C04E4A29A4502800E0A8E4 /* Extensions */,
 				71C04E4129A4237B00E0A8E4 /* Preview */,
@@ -121,6 +138,7 @@
 		7144B48629A40B6700EFED84 /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				71526F552A9F84B000AA2E72 /* Model */,
 				71C04E8129A5B9D400E0A8E4 /* ViewModel */,
 				71C04E6729A46CC000E0A8E4 /* Protocols */,
 				7144B48729A40B7C00EFED84 /* HomeScreenView.swift */,
@@ -153,6 +171,27 @@
 				7144B48129A40AD300EFED84 /* BaseViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		71526F552A9F84B000AA2E72 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				71526F562A9F84B900AA2E72 /* CoordinateObject.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		71BEAE542A9F7A3600723F4B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				71EC77342AD4E82F0070B8DF /* 2x2_Coordenadas.txt */,
+				71EC77322AD4E8240070B8DF /* 5x5_Coordenadas.txt */,
+				71EC77302AD4E81C0070B8DF /* 10x10_Coordenadas.txt */,
+				7106BDF52AC118B700B99CBA /* 10x10.csv */,
+				71B9C93C2AC0F5700097F38C /* 2x2.csv */,
+				71BEAE552A9F7A4900723F4B /* coordinates.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		71C04E4129A4237B00E0A8E4 /* Preview */ = {
@@ -298,8 +337,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71EC77332AD4E8240070B8DF /* 5x5_Coordenadas.txt in Resources */,
+				7106BDF62AC118B700B99CBA /* 10x10.csv in Resources */,
+				71526F5A2A9F8C6C00AA2E72 /* coordinates.json in Resources */,
+				71B9C93D2AC0F5700097F38C /* 2x2.csv in Resources */,
+				71EC77312AD4E81C0070B8DF /* 10x10_Coordenadas.txt in Resources */,
 				7144B47929A4079600EFED84 /* LaunchScreen.storyboard in Resources */,
 				7144B47629A4079600EFED84 /* Assets.xcassets in Resources */,
+				71EC77352AD4E82F0070B8DF /* 2x2_Coordenadas.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +367,7 @@
 				71C04E6E29A53CCB00E0A8E4 /* SearchScreenViewController.swift in Sources */,
 				71C04E7329A53F3A00E0A8E4 /* TableViewCellIdentifierProtocol.swift in Sources */,
 				7144B48E29A40DB800EFED84 /* ViewSetupProtocol.swift in Sources */,
+				71526F572A9F84B900AA2E72 /* CoordinateObject.swift in Sources */,
 				7144B46F29A4079400EFED84 /* SceneDelegate.swift in Sources */,
 				71C04E4029A4184000E0A8E4 /* HomeScreenViewController.swift in Sources */,
 				71C04E4829A43BAB00E0A8E4 /* LocationManager.swift in Sources */,
@@ -465,9 +511,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Mapkit-WeatherKit-Test/Mapkit-WeatherKit-Test.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = LQN6GJ5JLX;
+				DEVELOPMENT_TEAM = NN89R4M24F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Mapkit-WeatherKit-Test/Info.plist";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "In order to explore this App in it's full potential, we need access to your location.";
@@ -494,9 +541,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Mapkit-WeatherKit-Test/Mapkit-WeatherKit-Test.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = LQN6GJ5JLX;
+				DEVELOPMENT_TEAM = NN89R4M24F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Mapkit-WeatherKit-Test/Info.plist";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "In order to explore this App in it's full potential, we need access to your location.";

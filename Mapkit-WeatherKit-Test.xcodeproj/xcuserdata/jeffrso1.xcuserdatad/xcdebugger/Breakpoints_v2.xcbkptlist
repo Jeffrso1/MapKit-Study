@@ -7,17 +7,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BAC12866-B35C-4886-BE42-285D49EE37D4"
+            uuid = "558B2E3D-0766-42A7-82FB-73C9D8AD9045"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Mapkit-WeatherKit-Test/Screens/SearchScreen/ViewModel/SearchScreenViewModel.swift"
+            filePath = "Mapkit-WeatherKit-Test/Screens/HomeScreen/HomeScreenViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "getSearchItems(text:region:completionHandler:)"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
+            landmarkName = "mapView(_:didSelect:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "558B2E3D-0766-42A7-82FB-73C9D8AD9045 - 5e3296f357f6f8c6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;__C.MKRoute&gt;, Mapkit_WeatherKit_Test.NetworkError&gt;) -&gt; () in Mapkit_WeatherKit_Test.HomeScreenViewController.mapView(_: __C.MKMapView, didSelect: __C.MKAnnotation) -&gt; ()"
+                  moduleName = "Mapkit-WeatherKit-Test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jeffrso1/Documents/Swift%20-%20Projetos%20de%20Estudo/MapKit-Study/Mapkit-WeatherKit-Test/Screens/HomeScreen/HomeScreenViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "182"
+                  endingLineNumber = "182"
+                  offsetFromSymbolStart = "160">
+               </Location>
+               <Location
+                  uuid = "558B2E3D-0766-42A7-82FB-73C9D8AD9045 - df0be495148c39f5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.MKRoute) -&gt; Swift.Bool in closure #1 (Swift.Result&lt;Swift.Array&lt;__C.MKRoute&gt;, Mapkit_WeatherKit_Test.NetworkError&gt;) -&gt; () in Mapkit_WeatherKit_Test.HomeScreenViewController.mapView(_: __C.MKMapView, didSelect: __C.MKAnnotation) -&gt; ()"
+                  moduleName = "Mapkit-WeatherKit-Test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jeffrso1/Documents/Swift%20-%20Projetos%20de%20Estudo/MapKit-Study/Mapkit-WeatherKit-Test/Screens/HomeScreen/HomeScreenViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "182"
+                  endingLineNumber = "182"
+                  offsetFromSymbolStart = "45">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

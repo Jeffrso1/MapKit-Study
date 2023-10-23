@@ -53,7 +53,24 @@ class HomeScreenView: UIView {
     
     lazy var mapView: MKMapView = {
         let mapView = MKMapView(frame: .zero)
-        mapView.showsUserLocation = true
+//        mapView.showsUserLocation = true
+        mapView.camera.heading = 500.0
+        mapView.isPitchEnabled = true
+        mapView.showsBuildings = true
+        mapView.setRegion(MKCoordinateRegion(
+            center: CLLocationCoordinate2D(
+                latitude: -22.900029,
+                longitude: -43.299365
+            ),
+            span: MKCoordinateSpan(
+                latitudeDelta: 0.005,
+                longitudeDelta: 0.005
+            )
+        ), animated: true)
+//        mapView.setCameraZoomRange(
+//            MKMapView.CameraZoomRange(minCenterCoordinateDistance: 4000),
+//            animated: false
+//        )
         
         return mapView
     }()
@@ -85,7 +102,7 @@ class HomeScreenView: UIView {
     convenience init(region: MKCoordinateRegion) {
         self.init(frame: .zero)
         self.applySetup()
-        mapView.region = region
+//        mapView.region = region
     }
     
 }
@@ -128,9 +145,14 @@ extension HomeScreenView {
         ])
     }
     
-    func addCircleOverlay(at center: CLLocationCoordinate2D, radius: CLLocationDistance) {
+    func addCircleOverlay(at center: CLLocationCoordinate2D, radius: CLLocationDistance, title: String? = nil) {
         let overlay = MKCircle(center: center, radius: radius)
+        if let title { overlay.title = title }
         mapView.addOverlay(overlay)
+    }
+    
+    func addPolygonOverlay(_ polygon: MKPolygon) {
+        mapView.addOverlay(polygon)
     }
     
     func addRouteOverlay(route: MKRoute) {
@@ -139,6 +161,14 @@ extension HomeScreenView {
         let overlay = route.polyline
         overlay.title = title
         mapView.addOverlay(route.polyline)
+    }
+    
+    func addPolylineOverlay(_ polyline: MKPolyline) {
+        mapView.addOverlay(polyline)
+    }
+    
+    func addMultipolylineOverlay(_ multipolyline: MKMultiPolyline) {
+        mapView.addOverlay(multipolyline)
     }
     
     func removeCurrentRouteOverlayIfNeeded() {

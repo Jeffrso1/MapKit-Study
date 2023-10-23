@@ -22,6 +22,8 @@ class HomeScreenViewController: BaseViewController<HomeScreenView> {
             name: .currentLocationChange,
             object: nil
         )
+//        showFloodingPoints()
+        showMatrixTiles()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,6 +66,41 @@ extension HomeScreenViewController {
         mainView.mapView.addAnnotations(annotations)
     }
     
+    private func showFloodingPoints() {
+        for floodingCoordinate in viewModel.floodingCoordinates {
+            mainView.addCircleOverlay(at: floodingCoordinate, radius: 20, title: "floodingPoint")
+        }
+    }
+    
+    private func showMatrixTiles() {
+        let cases = [
+            SusceptibilityClass.veryLow,
+            SusceptibilityClass.low,
+            SusceptibilityClass.medium,
+            SusceptibilityClass.high,
+            SusceptibilityClass.veryHigh
+        ]
+        for susceptibilityClass in cases {
+            guard let polylines = viewModel.susceptibilityPopylines[susceptibilityClass.rawValue] else { continue }
+            let multipolyline = MKMultiPolyline(polylines)
+            multipolyline.title = susceptibilityClass.rawValue
+            mainView.addMultipolylineOverlay(multipolyline)
+        }
+    }
+    
+    private func showFloodingIntersectionAlert() {
+        let title = "Alerta!"
+        let message = "É impossível encontrar uma rota que não passe por um alagamento. Aguarde no local ou dê meia volta."
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
+        let okAction = UIAlertAction(title: "Ok", style: .default)
+        alert.addAction(okAction)
+        self.present(alert, animated: true)
+    }
+    
 }
 
 // MARK: - Actions
@@ -71,11 +108,11 @@ extension HomeScreenViewController {
     
     @objc
     private func managerLocationDidUpdate() {
-        mainView.startTrackingUserLocation()
-        mainView.addCircleOverlay(
-            at: LocationManager.shared.region.center,
-            radius: 1000
-        )
+//        mainView.startTrackingUserLocation()
+//        mainView.addCircleOverlay(
+//            at: LocationManager.shared.region.center,
+//            radius: 1000
+//        )
     }
     
 }
@@ -122,7 +159,7 @@ extension HomeScreenViewController: SearchScreenDelegate {
         )
         mainView.resetSegmentedControl()
         mainView.mapView.removeAnnotations(viewModel.currentAnnotations)
-        mainView.updateMap(to: region)
+//        mainView.updateMap(to: region)
         setAnnotationPins(for: [mapItem])
     }
     
@@ -134,13 +171,42 @@ extension HomeScreenViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if let overlay = overlay as? MKCircle {
             let circleRenderer = MKCircleRenderer(circle: overlay)
-            circleRenderer.strokeColor = .red.withAlphaComponent(0.5)
+            switch overlay.title {
+            case "floodingPoint":
+                circleRenderer.fillColor = .systemBlue
+            default:
+                circleRenderer.fillColor = .red
+            }
             return circleRenderer
         }
-        
-        let route = MKPolylineRenderer(overlay: overlay)
-        route.strokeColor = .blue
-        return route
+        if let overlay = overlay as? MKMultiPolyline {
+            let route = MKMultiPolylineRenderer(multiPolyline: overlay)
+            switch overlay.title {
+            case "Muito Baixo":
+                route.strokeColor = .blue
+                route.fillColor = .blue
+            case "Baixo":
+                route.strokeColor = .green
+                route.fillColor = .green
+            case "Médio":
+                route.strokeColor = .yellow
+                route.fillColor = .yellow
+            case "Alto":
+                route.strokeColor = .orange
+                route.fillColor = .orange
+            case "Muito Alto":
+                route.strokeColor = .red
+                route.fillColor = .red
+            default:
+                break
+            }
+            route.lineWidth = 2
+            route.alpha = 0.5
+            return route
+        }
+        let polygon = MKPolygonRenderer(overlay: overlay)
+        polygon.strokeColor = .red
+        return polygon
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -151,10 +217,14 @@ extension HomeScreenViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
-        viewModel.getDirections(destination: annotation.coordinate) { response in
+        viewModel.getRoutes(destination: annotation.coordinate) { response in
             switch response {
-            case .success(let route):
-                self.mainView.addRouteOverlay(route: route)
+            case .success(let routes):
+                guard let rightRoute = routes.first(where: { !self.viewModel.checkFloodingPointIntersection(for: $0.polyline) }) else {
+                    self.showFloodingIntersectionAlert()
+                    return
+                }
+                self.mainView.addRouteOverlay(route: rightRoute)
                 
             case .failure(_):
                 print("DEU PROBLEMA")
@@ -162,6 +232,46 @@ extension HomeScreenViewController: MKMapViewDelegate {
         }
     }
     
+}
+
+public extension MKMapView {
+
+    func metersToPoints(meters: Double) -> Double {
+
+        let deltaPoints = 500.0
+
+        let point1 = CGPoint(x: 0, y: 0)
+        let coordinate1 = convert(point1, toCoordinateFrom: self)
+        let location1 = CLLocation(latitude: coordinate1.latitude, longitude: coordinate1.longitude)
+
+        let point2 = CGPoint(x: 0, y: deltaPoints)
+        let coordinate2 = convert(point2, toCoordinateFrom: self)
+        let location2 = CLLocation(latitude: coordinate2.latitude, longitude: coordinate2.longitude)
+
+        let deltaMeters = location1.distance(from: location2)
+
+        let pointsPerMeter = deltaPoints / deltaMeters
+
+        return meters * pointsPerMeter
+    }
+}
+
+public class ZoomingPolylineRenderer : MKPolylineRenderer {
+
+    private var mapView: MKMapView!
+    private var polylineWidth: Double! // Meters
+
+    convenience public init(polyline: MKPolyline, mapView: MKMapView, polylineWidth: Double) {
+        self.init(polyline: polyline)
+
+        self.mapView = mapView
+        self.polylineWidth = polylineWidth
+    }
+
+    override public func draw(_ mapRect: MKMapRect, zoomScale: MKZoomScale, in context: CGContext) {
+        self.lineWidth = CGFloat(mapView.metersToPoints(meters: polylineWidth))
+        super.draw(mapRect, zoomScale: zoomScale, in: context)
+    }
 }
 
 // MARK: - Preview
